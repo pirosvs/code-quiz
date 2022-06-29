@@ -4,8 +4,8 @@
 [link]
 
 ## Description
-![Image of the in-progress quiz] "https://ibb.co/gMXctRw"
-![Image of the quiz complete screen] "https://ibb.co/2nSNS4H"
+![Image of the in-progress quiz] (https://ibb.co/gMXctRw)
+![Image of the quiz complete screen] (https://ibb.co/2nSNS4H)
 
 This project is an example of a dynamic quiz format, where the page continuously updates to show only the relevant information on the screen. The quiz itself displays knowledge of web APIs and dynamic JavaScript, where innerHTML and template literals are used to render content on the page while removing previous content. Usage of web API methods in JavaScript is preferred here over, for exmaple, writing directly in the HTML and hiding it in the CSS, as it makes the code appear neater and keeps the page from having to store content while it is not being displayed to the user. 
 
@@ -28,3 +28,6 @@ Credit to my girlfriend and my housemate for helping me immensely with this proj
 
 ## License
 This project falls under the MIT License.
+
+## Author
+Damien Armstrong can be found on: Linkedin (https://www.linkedin.com/in/damien-armstrong-412319138/) Github (https://github.com/pirosvs)
