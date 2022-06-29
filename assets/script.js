@@ -10,7 +10,7 @@ var userNameInput =
         </form>`;
 var score = 0;
 
-var quizTimer = 75;
+var quizTimer = 45;
 var questionCount = 0;
 var questionHTML;
 
@@ -28,9 +28,9 @@ const QuizContent = [
   {
     question: "How can you utilize Javascript in every day life?",
     answers: {
-      a: "In the bathroom",
-      b: "To take over the world",
-      c: "to make cool little website interactions"
+      a: "To pet cats",
+      b: "To end world hunger",
+      c: "To make cool little website interactions"
     },
     correctAnswer: "c"
   },
@@ -142,7 +142,7 @@ startBtn.addEventListener("click", function quizGo(){
                   clearInterval(startTime);
                   JSON.stringify(score);
                   localStorage.setItem('Last score', score);
-                  // things go here to make appear a form to enter info and show score
+                  showScoreboard();
                 }
             } , 1000 )
         startBtn.style.display = "none";
