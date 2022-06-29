@@ -10,6 +10,7 @@ button {
     border-radius: 3px;
 }
 
+/* I am aware this is redundant but had issues selecting with querySelectorAll or other methods */
 #questionButta {
     background-color: blueviolet;
     color: white;
