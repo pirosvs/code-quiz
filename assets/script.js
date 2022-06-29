@@ -3,9 +3,9 @@
 const quizBox = document.getElementById("quiz");
 var startBtn = document.getElementById("buttons");
 var timerDisplay = document.getElementById("timer");
+var userNameInput;
 var score = 0;
 
-var preTimer = 5;
 var quizTimer = 75;
 var questionCount = 0;
 var questionHTML;
@@ -121,7 +121,13 @@ function setupAnswerButton(answerBtn)
 
 function showScoreboard()
 {
-    quizBox.innerHTML = "<p>Good job you finished the quiz mario</p>";
+    userNameInput.push(
+        `<form>
+        <label for="username">User name:</label><br>
+        <input type="text" id="username" name="username"><br>
+        </form>`);
+    quizBox.innerHTML = "<p>Your score is:</p>" + score + userNameInput;
+
 }
 
 //activated whenever the button element is clicked, currently checking if quizTimer is at 75 to see if it has been clicked yet.
@@ -129,11 +135,6 @@ function showScoreboard()
 //Afterwards, post click, the button will be used to check quiz answers.
 startBtn.addEventListener("click", function quizGo(){
         console.log(quizTimer);
-        var waitFive = setInterval(() => {
-            preTimer--;
-            timerDisplay.innerHTML = preTimer;
-            if(preTimer === 0) {
-                clearInterval(waitFive);
                 var startTime = setInterval(() => {
                 quizTimer--;
                 timerDisplay.innerHTML = quizTimer;
@@ -144,14 +145,12 @@ startBtn.addEventListener("click", function quizGo(){
                   // things go here to make appear a form to enter info and show score
                 }
             } , 1000 )
-            }
-        } , 1000 );
         startBtn.style.display = "none";
         quizBuilder();
         showNextQuestion();
   }
 );
-
+// Does not currently end quiz when last question is done
 
 
 
