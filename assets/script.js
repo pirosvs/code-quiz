@@ -69,7 +69,6 @@ function quizBuilder(){
         answers.push(
         `<label>
         <input type="button" id="questionButt${answerKey}" name="questionBtn" value="${answerKey}">
-        ${answerKey} :
         ${currentQuestion.answers[answerKey]}
         </label>`
         );
