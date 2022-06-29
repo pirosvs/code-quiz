@@ -4,7 +4,7 @@ var startBtn = document.getElementById("buttons");
 var timerDisplay = document.getElementById("timer");
 var preTimer = 5;
 var quizTimer = 75;
-
+var score = 0;
 
 
 startBtn.addEventListener("click", function quizGo(){
@@ -17,6 +17,12 @@ startBtn.addEventListener("click", function quizGo(){
                 var startTime = setInterval(() => {
                 quizTimer--;
                 timerDisplay.innerHTML = quizTimer;
+                if (quizTimer === 0) {
+                    clearInterval(startTime);
+                    JSON.stringify(score);
+                    localStorage.setItem('Last score', score);
+                    // things go here to make appear a form to enter info and show score
+                }
             } , 1000 )
             }
         } , 1000 );
