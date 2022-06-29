@@ -1,7 +1,7 @@
 # code-quiz
 
 ## Deployment Link
-[link]
+(https://pirosvs.github.io/code-quiz/)
 
 ## Description
 ![Image of the in-progress quiz] (https://ibb.co/gMXctRw)
