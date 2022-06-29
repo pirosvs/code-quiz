@@ -125,7 +125,8 @@ function setupAnswerButton(answerBtn)
 
 function showScoreboard()
 {
-    quizBox.innerHTML = "<p>Your score is:</p>" + score + userNameInput;
+    quizBox.innerHTML = "<p>Your score is:</p>" + score + "<br>" + userNameInput;
+    localStorage.setItem('Username', 'userNameInput.value');
 
 }
 
@@ -149,9 +150,3 @@ startBtn.addEventListener("click", function quizGo(){
         showNextQuestion();
   }
 );
-// Does not currently end quiz when last question is done
-
-
-
-// likely need to replace current HTML and add innerHTML to make it delete once quiz begins
-// can use document.innerHTML = ""; or some shit to clear maybe
