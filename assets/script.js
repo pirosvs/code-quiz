@@ -3,7 +3,11 @@
 const quizBox = document.getElementById("quiz");
 var startBtn = document.getElementById("buttons");
 var timerDisplay = document.getElementById("timer");
-var userNameInput;
+var userNameInput = 
+`<form>
+        <label for="username">User name:</label><br>
+        <input type="text" id="username" name="username"><br>
+        </form>`;
 var score = 0;
 
 var quizTimer = 75;
@@ -121,11 +125,6 @@ function setupAnswerButton(answerBtn)
 
 function showScoreboard()
 {
-    userNameInput.push(
-        `<form>
-        <label for="username">User name:</label><br>
-        <input type="text" id="username" name="username"><br>
-        </form>`);
     quizBox.innerHTML = "<p>Your score is:</p>" + score + userNameInput;
 
 }
