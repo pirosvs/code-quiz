@@ -1,20 +1,18 @@
-// document.body.innerHTML = "";
-
 const quizBox = document.getElementById("quiz");
 var startBtn = document.getElementById("buttons");
 var timerDisplay = document.getElementById("timer");
 var userNameInput = 
-`<form>
+    `<form>
         <label for="username">User name:</label><br>
         <input type="text" id="username" name="username"><br>
-        </form>`;
+    </form>`;
 var score = 0;
 
 var quizTimer = 45;
 var questionCount = 0;
 var questionHTML;
 
-//this const is an array that holds all the questions
+// This const is an array that holds all the questions
 const QuizContent = [
   {
     question: "Who first used JavaScript?",
@@ -55,17 +53,17 @@ const QuizContent = [
 ]
 
 function quizBuilder(){
-  //create an array that we are going to come back to later to put all our content into
+  // Creates an array that we are going to come back to later to put all our content into
   const output = [];
 
-//a forEach loop that gets the html content of the current question and the index number of the question
+// Gets the html content of the current question and the index number of the question
   QuizContent.forEach( (currentQuestion, questionNumber) => {
-    //An array that holds all the answers
+    // An array that holds all the answers
     const answers = [];
 
-    //now lets run code for every answer in that array where letter is checking the notated letters for each available answer
+    // For every answer in that array, checks the notated letters for each available answer
     for(answerKey in currentQuestion.answers){
-        //Create a label HTML element which appends radio buttons to each answer.
+        // Creates a label HTML element which appends radio buttons to each answer
         answers.push(
         `<label>
         <input type="button" id="questionButt${answerKey}" name="questionBtn" value="${answerKey}">
@@ -74,7 +72,7 @@ function quizBuilder(){
         );
       }
 
-    //during this loop of "QuizContent" add the current looping question and answer to the ouput array we made at the beginning of the function
+    // During this loop of "QuizContent" add the current looping question and answer to the ouput array we made at the beginning of the function
     output.push(
       `<div class="question"> ${currentQuestion.question} </div>
       <div class="answers"> ${answers.join('')} </div>`
@@ -90,9 +88,9 @@ function quizBuilder(){
 
 function showNextQuestion()
 {
-    //take all resulting code and inject it into the html page
+    // Takes all resulting code and inject it into the html page
   quizBox.innerHTML = questionHTML[questionCount];
-     // find all of the buttons with the question butt id
+     // Finds all of the buttons with the questionButt id and runs them with the following function
   var answerBtnA = document.getElementById("questionButta")
   setupAnswerButton(answerBtnA);
 
@@ -103,6 +101,8 @@ function showNextQuestion()
     setupAnswerButton(answerBtnC);
 }
 
+// Sets the answer buttons so that if the correct one is clicked, the score goes up, and if the 
+// incorrect one is clicked, the time decreases by 10 instead of 1
 function setupAnswerButton(answerBtn)
 {
     answerBtn.addEventListener("click", function answerCheckC(){
@@ -111,10 +111,12 @@ function setupAnswerButton(answerBtn)
       } else {
         quizTimer -= 10;
       }
+
+    // Moves to the next question in the array no matter which button was clicked
       questionCount++;
       console.log(questionCount);
-      // if there are more questions, show another one
-      // otehrwise, show the scoreboard
+
+      // If there are more questions, shows another one, othrrwise shows the scoreboard
       if(questionCount < questionHTML.length)
         showNextQuestion();
       else
@@ -122,21 +124,26 @@ function setupAnswerButton(answerBtn)
     });
 }
 
+
+// Once all questions have been answered or the time runs out, shows user's score and allows user
+// to input a username so that score and username may be saved with localStorage
+
+// I am aware this does not either a) preventDefault and therefore refreshes the page while not storing 
+// the user input, and that as my timer is set up elsewhere I cannot call to clear it here
 function showScoreboard()
 {
     quizBox.innerHTML = "<p>Your score is:</p>" + score + "<br>" + userNameInput;
     localStorage.setItem('Username', 'userNameInput.value');
-
 }
 
-//activated whenever the button element is clicked, currently checking if quizTimer is at 75 to see if it has been clicked yet.
-//If it has not been clicked then the initial click will change the text of the button to "submit" and begin the timer.
-//Afterwards, post click, the button will be used to check quiz answers.
+//Sets timer once start button has been clicked, displays it on the page and decreases per second
 startBtn.addEventListener("click", function quizGo(){
         console.log(quizTimer);
                 var startTime = setInterval(() => {
                 quizTimer--;
                 timerDisplay.innerHTML = quizTimer;
+                // Once timer runs out, ends timer and takes the score value, makes it a string, and stores it locally,
+                // then shows the scoreboard
                 if (quizTimer === 0) {
                   clearInterval(startTime);
                   JSON.stringify(score);
