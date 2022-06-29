@@ -6,6 +6,45 @@ var preTimer = 5;
 var quizTimer = 75;
 var score = 0;
 
+//this const is an array that holds all the questions
+const QuizContent = [
+    {
+      question: "Who first used JavaScript?",
+      answers: {
+        a: "Mario",
+        b: "George Bush",
+        c: "Hatsune Miku"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "How can you utilize Javascript in every day life?",
+      answers: {
+        a: "In the bathroom",
+        b: "To take over the world",
+        c: "to make cool little website interactions"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "How many javascripts does it take to hatch an egg?",
+      answers: {
+        a: "React",
+        b: "TypeScript",
+        c: "Header 2"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "In Alfred Hitchcock's classic film, Vertigo, how does Jimmy Stewart's character utilize Javascript to save the day?",
+      answers: {
+        a: "He sent the captor a prank webste",
+        b: "He let his cat program an investigative program",
+        c: "Run away jimmy!!!!!!!!!!!!!!!!!!!!!!!!"
+      },
+      correctAnswer: "c"
+    }
+  ]
 
 startBtn.addEventListener("click", function quizGo(){
         console.log(quizTimer);
