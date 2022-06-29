@@ -3,3 +3,27 @@ body {
     text-align: center;
     background-color: #FFE8F8 ;
 }
+
+button {
+    background-color: blueviolet;
+    color: white;
+    border-radius: 3px;
+}
+
+#questionButta {
+    background-color: blueviolet;
+    color: white;
+    border-radius: 3px;
+}
+
+#questionButtb {
+    background-color: blueviolet ;
+    color: white;
+    border-radius: 3px;
+}
+
+#questionButtc {
+    background-color: blueviolet;
+    color: white;
+    border-radius: 3px;
+}
