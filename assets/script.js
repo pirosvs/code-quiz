@@ -7,7 +7,8 @@ var score = 0;
 
 var preTimer = 5;
 var quizTimer = 75;
-var questionCount = 1;
+var questionCount = 0;
+var questionHTML;
 
 //this const is an array that holds all the questions
 const QuizContent = [
@@ -77,52 +78,50 @@ function quizBuilder(){
     );
     console.log(output);
   });
-  //take all resulting code and inject it into the html page
-  quizBox.innerHTML = output[0];
 
-  // find all of the buttons with the question butt id
+  questionHTML = output;
+  
+
+ 
+}
+
+function showNextQuestion()
+{
+    //take all resulting code and inject it into the html page
+  quizBox.innerHTML = questionHTML[questionCount];
+     // find all of the buttons with the question butt id
   var answerBtnA = document.getElementById("questionButta")
-
-    answerBtnA.addEventListener("click", function answerCheckA(){
-      if(answerBtnA.value == QuizContent[questionCount-1].correctAnswer){
-        score += 1;
-        console.log("correct");
-        quizBox.innerHTML = output[questionCount];
-      } else {
-        quizTimer -= 10;
-        console.log("incorrect");
-      }
-      questionCount++;
-      console.log(questionCount);
-    });
+  setupAnswerButton(answerBtnA);
 
     var answerBtnB = document.getElementById("questionButtb")
-
-    answerBtnB.addEventListener("click", function answerCheckB(){
-      if(answerBtnB.value == QuizContent[questionCount-1].correctAnswer){
-        score += 1;
-        console.log("correct");
-        quizBox.innerHTML = output[questionCount];
-      } else {
-        quizTimer -= 10;
-        console.log("incorrect")
-      }
-      questionCount++;
-      console.log(questionCount);
-    });
+    setupAnswerButton(answerBtnB);
 
     var answerBtnC = document.getElementById("questionButtc")
+    setupAnswerButton(answerBtnC);
+}
 
-    answerBtnC.addEventListener("click", function answerCheckC(){
-      if(answerBtnC.value == QuizContent[questionCount-1].correctAnswer){
+function setupAnswerButton(answerBtn)
+{
+    answerBtn.addEventListener("click", function answerCheckC(){
+      if(answerBtn.value == QuizContent[questionCount].correctAnswer){
         score += 1;
-        quizBox.innerHTML = output[questionCount];
       } else {
         quizTimer -= 10;
       }
       questionCount++;
       console.log(questionCount);
+      // if there are more questions, show another one
+      // otehrwise, show the scoreboard
+      if(questionCount < questionHTML.length)
+        showNextQuestion();
+      else
+        showScoreboard();
     });
+}
+
+function showScoreboard()
+{
+    quizBox.innerHTML = "<p>Good job you finished the quiz mario</p>";
 }
 
 //activated whenever the button element is clicked, currently checking if quizTimer is at 75 to see if it has been clicked yet.
@@ -147,9 +146,9 @@ startBtn.addEventListener("click", function quizGo(){
             } , 1000 )
             }
         } , 1000 );
-      startBtn.style.display = "none";
-      quizBuilder();
-
+        startBtn.style.display = "none";
+        quizBuilder();
+        showNextQuestion();
   }
 );
 
