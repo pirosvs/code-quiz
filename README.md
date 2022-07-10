@@ -1,11 +1,11 @@
 # code-quiz
 
 ## Deployment Link
-<a href="https://pirosvs.github.io/code-quiz/">Deployment Link</a>
+<a href="https://pirosvs.github.io/code-quiz/">Click here to try out the quiz</a>
 
 ## Description
-![Image of the in-progress quiz] <img src="./assets/images/quiz-ip.png"/> (https://ibb.co/gMXctRw)
-![Image of the quiz complete screen] <img src="https://ibb.co/2nSNS4H"/>
+<img src="./assets/images/quiz-ip.png" alt="Image of the in-progress quiz"/>
+<img src="./assets/images/quiz-complete.png" alt="Image of the quiz complete screen"/>
 
 This project is an example of a dynamic quiz format, where the page continuously updates to show only the relevant information on the screen. The quiz itself displays knowledge of web APIs and dynamic JavaScript, where innerHTML and template literals are used to render content on the page while removing previous content. Usage of web API methods in JavaScript is preferred here over, for exmaple, writing directly in the HTML and hiding it in the CSS, as it makes the code appear neater and keeps the page from having to store content while it is not being displayed to the user. 
 
@@ -30,4 +30,4 @@ Credit to my girlfriend and my housemate for helping me immensely with this proj
 This project falls under the MIT License.
 
 ## Author
-Damien Armstrong can be found on: Linkedin (https://www.linkedin.com/in/damien-armstrong-412319138/) Github (https://github.com/pirosvs)
+Damien Armstrong can be found on: <a href="https://www.linkedin.com/in/damien-armstrong-412319138/">Linkedin</a>, <a href="https://github.com/pirosvs">Github</a>
