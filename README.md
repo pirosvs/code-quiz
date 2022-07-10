@@ -1,7 +1,7 @@
 # code-quiz
 
 ## Deployment Link
-<a href="https://pirosvs.github.io/code-quiz/">Click here to try out the quiz</a>
+<a href="https://pirosvs.github.io/code-quiz/">Click here to try out the quiz!</a>
 
 ## Description
 <img src="./assets/images/quiz-ip.png" alt="Image of the in-progress quiz"/>
